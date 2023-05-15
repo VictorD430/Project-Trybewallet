@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addEmail } from '../redux/actions';
 
 class Login extends React.Component {
   constructor() {
@@ -27,6 +30,7 @@ class Login extends React.Component {
 
   render() {
     const { email, password } = this.state;
+    const { loginAction, history } = this.props;
     return (
       <div className="login-container">
         <h1>Trybe Wallet</h1>
@@ -53,7 +57,7 @@ class Login extends React.Component {
           <button
             type="button"
             disabled={ this.btnDisabled(email, password) }
-            onClick={ () => console.log('btnEntrar') }
+            onClick={ () => loginAction(email) && history.push('/carteira') }
           >
             Entrar
           </button>
@@ -63,4 +67,15 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  loginAction: (email) => dispatch(addEmail(email)),
+});
+
+Login.propTypes = {
+  loginAction: PropTypes.func,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+}.isRequired;
+
+export default connect(null, mapDispatchToProps)(Login);
