@@ -14,10 +14,15 @@ class Login extends React.Component {
     const regex = /\w+@\w+\.\w{2,8}(\.\w{0,2})?/g;
     const validateEmail = regex.test(email);
     const passSize = 6;
+    const passTest = password.length >= passSize;
+    let test;
 
-    if (validateEmail && password.length >= passSize) {
-      return false;
+    if (validateEmail && passTest) {
+      test = false;
+    } else {
+      test = true;
     }
+    return test;
   }
 
   render() {
