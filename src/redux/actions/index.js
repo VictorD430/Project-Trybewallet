@@ -5,6 +5,7 @@ export const ADD_EMAIL = 'ADD_EMAIL';
 export const ADD_CURRENCIES = 'ADD_CURRENCIES';
 export const ADD_EXPENSES = 'ADD_EXPENSES';
 export const SUM_VALUES = 'SUM_VALUES';
+export const REM_EXPENSES = 'REM_EXPENSES';
 
 export const addEmail = (payload) => ({
   type: ADD_EMAIL,
@@ -30,6 +31,11 @@ export const sumValues = (allValues) => ({
   payload: {
     allValues,
   },
+});
+
+export const removeExpense = (id) => ({
+  type: REM_EXPENSES,
+  id,
 });
 
 export const requestCurrencies = () => async (dispatch) => {

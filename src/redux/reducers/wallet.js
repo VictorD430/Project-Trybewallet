@@ -3,6 +3,7 @@ import {
   ADD_CURRENCIES,
   ADD_EXPENSES,
   SUM_VALUES,
+  REM_EXPENSES,
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -29,6 +30,12 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       allValues: action.payload.allValues,
+    };
+
+  case REM_EXPENSES:
+    return {
+      ...state,
+      expenses: state.expenses.filter((element) => element.id !== action.id),
     };
 
   default:

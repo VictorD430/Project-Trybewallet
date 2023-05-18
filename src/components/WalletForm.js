@@ -123,7 +123,6 @@ class WalletForm extends Component {
               >
                 {coin}
               </option>
-
             ))}
           </select>
         </div>
