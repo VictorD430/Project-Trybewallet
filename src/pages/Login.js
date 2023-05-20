@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addEmail } from '../redux/actions';
+import '../styles/Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -33,27 +34,32 @@ class Login extends React.Component {
     const { loginAction, history } = this.props;
     return (
       <div className="login-container">
-        <h1>Trybe Wallet</h1>
-        <h3>Login</h3>
-        <div className="input-container">
-          <input
-            type="email"
-            name="email"
-            data-testid="email-input"
-            value={ email }
-            placeholder="e-mail"
-            onChange={ (element) => this.setState({ email: element.target.value }) }
-          />
-          <input
-            type="password"
-            name="password"
-            data-testid="password-input"
-            value={ password }
-            placeholder="password"
-            onChange={ (element) => this.setState({ password: element.target.value }) }
-          />
-        </div>
-        <div className="btn-container">
+        <div className="login">
+          <h1>
+            <span>Trybe</span>
+            Wallet
+          </h1>
+          <h3>Login</h3>
+          <label htmlFor="email">
+            <input
+              type="email"
+              name="email"
+              data-testid="email-input"
+              value={ email }
+              placeholder="e-mail"
+              onChange={ (element) => this.setState({ email: element.target.value }) }
+            />
+          </label>
+          <label htmlFor="password">
+            <input
+              type="password"
+              name="password"
+              data-testid="password-input"
+              value={ password }
+              placeholder="password"
+              onChange={ (element) => this.setState({ password: element.target.value }) }
+            />
+          </label>
           <button
             type="button"
             disabled={ this.btnDisabled(email, password) }

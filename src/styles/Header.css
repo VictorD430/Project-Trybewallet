@@ -1,0 +1,57 @@
+.header-container {
+  align-items: center;
+  background-color: #00BCC9;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2%;
+  margin-top: 0.5%;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.logo h1 {
+  color: white;
+  font-size: 5rem;
+  font-weight: 600px;
+  margin: 0;
+}
+
+.logo h1:hover {
+  color: #f8e61d;
+}
+
+.logo span {
+  color: #3cf5a8;
+  font-size: 5rem;
+  margin: 0;
+}
+
+.logo span:hover {
+  color: #17c400;
+}
+
+.infos {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-size: 40px;
+  flex-direction: column;
+  gap: 1rem;
+
+}
+
+.email-field {
+  font-size: 80%;
+  margin-bottom: 0;
+}
+
+.total-field {
+  font-size: 80%;
+  margin: 2%;
+}
+
+.header-currency-field {
+  font-size: 80%;
+  margin-top: 2%;
+}

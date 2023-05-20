@@ -5,6 +5,7 @@ import {
   removeExpense as ACTIONremoveExpense,
   editExpense as ACTIONeditExpense,
 } from '../redux/actions';
+import '../styles/Table.css';
 
 class Table extends Component {
   handleEdit = (expense) => {

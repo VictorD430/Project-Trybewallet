@@ -1,0 +1,9 @@
+.wallet-page {
+  align-items: center;
+  background-color: #3cf5a8;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
