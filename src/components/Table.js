@@ -3,9 +3,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   removeExpense as ACTIONremoveExpense,
+  editExpense as ACTIONeditExpense,
 } from '../redux/actions';
 
 class Table extends Component {
+  handleEdit = (expense) => {
+    const { editExpense } = this.props;
+    editExpense(expense);
+  };
+
   render() {
     const { expenses, removeIt } = this.props;
     return (
@@ -48,6 +54,14 @@ class Table extends Component {
                     >
                       Delete
                     </button>
+                    <button
+                      className="edit-btn"
+                      data-testid="edit-btn"
+                      type="button"
+                      onClick={ () => this.handleEdit(ex) }
+                    >
+                      Editar
+                    </button>
                   </td>
                 </tr>
               );
@@ -62,6 +76,7 @@ class Table extends Component {
 Table.propTypes = {
   expenses: PropTypes.array,
   removeIt: PropTypes.func,
+  editExpense: PropTypes.func,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
@@ -70,6 +85,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   removeIt: (expenseId) => dispatch(ACTIONremoveExpense(expenseId)),
+  editExpense: (expense) => dispatch(ACTIONeditExpense(expense)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

@@ -1,14 +1,16 @@
-// Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 import {
   ADD_CURRENCIES,
   ADD_EXPENSES,
   SUM_VALUES,
   REM_EXPENSES,
+  EDIT_EXPENSE,
+  EDIT_SAVED_EXPENSE,
 } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
+  edit: false,
   allValues: 0,
 };
 
@@ -30,12 +32,32 @@ const wallet = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       allValues: action.payload.allValues,
+      edit: false,
     };
 
   case REM_EXPENSES:
     return {
       ...state,
-      expenses: state.expenses.filter((element) => element.id !== action.id),
+      expenses: state.expenses.filter((element) => element.id !== action.idRemove),
+    };
+
+  case EDIT_EXPENSE:
+    return {
+      ...state,
+      edit: true,
+      editExpense: action.payload,
+    };
+
+  case EDIT_SAVED_EXPENSE:
+    return {
+      ...state,
+      expenses: state.expenses.map((expense) => {
+        if (expense.id === action.payload.id) {
+          return { ...expense, ...action.payload };
+        }
+        return expense;
+      }),
+      edit: false,
     };
 
   default:
