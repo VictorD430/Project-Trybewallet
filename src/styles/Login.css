@@ -10,7 +10,7 @@
 
 .login {
   align-items: center;
-  background-color: #00BCC9;
+  background-color: #00bcc9;
   border-radius: 2rem;
   box-shadow: 0 0 1rem 0 rgb(60, 2, 68, 1);
   display: flex;
@@ -18,10 +18,6 @@
   height: 45%;
   justify-content: center;
   width: 35%;
-}
-
-.login h1:hover {
-  color: #f8e61d;
 }
 
 .login span {
@@ -41,8 +37,12 @@
   margin-bottom: 1rem;
 }
 
+.login h1:hover {
+  color: #f8e61d;
+}
+
 .login h3 {
-  color: rgb(123, 239, 235);;
+  color: rgb(123, 239, 235);
 }
 
 .login label {
@@ -69,7 +69,7 @@
   background-color: white;
   border: none;
   border-radius: 0.5rem;
-  color: #A332B3;
+  color: #a332b3;
   cursor: pointer;
   font-size: 2rem;
   height: 12%;
@@ -82,7 +82,7 @@
 }
 
 .login button:enabled {
-  background-color: #7ED321;
+  background-color: #7ed321;
   color: white;
 }
 
